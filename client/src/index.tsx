@@ -7,6 +7,18 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   html {
    font-size: 62.5%; 
+   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+  }
+  *, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  
+  padding: 0;
+  margin: 0;
+
   }
   body {
     font-family: 'Roboto', sans-serif;
