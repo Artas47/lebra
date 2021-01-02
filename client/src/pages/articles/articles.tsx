@@ -6,7 +6,10 @@ const useStyles = makeStyles({
     articlesWrapper: {
         display: 'flex',
         width: '100%',
-        flexWrap: 'wrap'
+        height: 'calc(100% - 6rem)',
+        flexWrap: 'wrap',
+        backgroundColor: '#efeff0',
+        overflowY: 'scroll'
     }
 });
 
@@ -23,7 +26,6 @@ const Articles = () => {
             <ArticleItem />
             <ArticleItem />
             <ArticleItem />
-            
         </Box>
     )
 }

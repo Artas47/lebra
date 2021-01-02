@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
+import { colors } from '@material-ui/core';
 
 const GlobalStyles = createGlobalStyle`
+  ::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: ${colors.blueGrey[100]};
+}
   html {
    font-size: 62.5%; 
    -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;  
+
   }
   *, *:before, *:after {
   -webkit-box-sizing: inherit;
@@ -22,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
   }
 `;
 

@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     article: {
       height: '20rem',
       width: '45%',
-      margin: '1rem'
+      margin: '3rem'
     },
     image: {
         height: '100%',
