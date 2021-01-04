@@ -1,4 +1,4 @@
-import { Box, Button, colors, makeStyles, Typography } from '@material-ui/core'
+import { Box, Button, makeStyles, Typography } from '@material-ui/core'
 import React from 'react';
 import UserAccount from './userAccount';
 import AddIcon from '@material-ui/icons/Add';
@@ -20,6 +20,9 @@ const useStyles = makeStyles({
         backgroundColor: '#70c1b3',
         color: '#fff',
         height: '5.5rem',
+        '&:hover': {
+            backgroundColor: '#4bae9d'
+        }
     }
 });
 
@@ -32,7 +35,8 @@ const Sidebar = () => {
                 variant="contained"
                 size="large"
                 color='default'
-                className={classes.button}
+                classes={{root: classes.button}}
+                // className={classes.button}
                 startIcon={<AddIcon />}
             >
                 <Typography variant='h5'>Create note</Typography>

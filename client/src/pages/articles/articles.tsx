@@ -1,4 +1,4 @@
-import { Box, makeStyles, Paper } from '@material-ui/core'
+import { Box, makeStyles } from '@material-ui/core'
 import React from 'react'
 import ArticleItem from '../../components/articleItem/articleItem'
 

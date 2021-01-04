@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 
 const Header = () => {
     const classes = useStyles();
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('/');
     const history = useHistory();
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
