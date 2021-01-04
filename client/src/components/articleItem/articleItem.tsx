@@ -7,12 +7,12 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         // flexWrap: 'wrap',
-      height: '50rem',
+      height: '45rem',
       width: '30rem',
       margin: '3rem'
     },
     image: {
-        height: '60%',
+        height: '30rem',
         width: '100%'
     }
   });
@@ -21,8 +21,9 @@ const ArticleItem = () => {
     const classes = useStyles();
     return (
         <Box className={classes.article}>
+            
             <img className={classes.image} src='https://picsum.photos/200/300'/>
-            <Typography style={{color: colors.blueGrey[500], height: '100%'}} variant="h4">
+            <Typography style={{color: colors.blueGrey[500], height: '100%', marginTop: '1rem'}} variant="h4">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
             </Typography>
         </Box>

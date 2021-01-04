@@ -1,18 +1,34 @@
+import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
 import Articles from './pages/articles/articles';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+// import {} from 'react-router-dom';
+
+// const useStyles = makeStyles({
+//   headerWrapper
+// });
 
 function App() {
   return (
-    <main style={{display: 'flex',height: '100vh'}}>
-      <div style={{width: '80%', height: '100%'}}>
+    <main style={{height: '100vh'}}>
+      <Router>
         <Header />
-        <Articles />
-      </div>
-      <div style={{width: '20%', position: 'relative'}}>
         <Sidebar />
-      </div>
+        <Switch>
+          <Route path='/notes' exact>
+            NOTES
+          </Route>
+          <Route path='/' exact>
+            <Articles />
+          </Route>
+        </Switch>
+      </Router>
     </main>
   );
 }

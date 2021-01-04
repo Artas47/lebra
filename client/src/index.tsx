@@ -8,7 +8,6 @@ import { colors } from '@material-ui/core';
 const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
@@ -20,7 +19,6 @@ const GlobalStyles = createGlobalStyle`
 
 ::-webkit-scrollbar-thumb
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: ${colors.blueGrey[100]};
 }
   html {

@@ -5,14 +5,14 @@ import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles({
     articlesWrapper: {
-        // position: 'absolute',
-        // top: '0',
-        // right: '0',
+        position: 'absolute',
+        top: '0',
+        right: '0',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         height: '100vh',
-        width: '100%',
+        width: '20%',
         backgroundColor: '#fff', 
     },
     button: {

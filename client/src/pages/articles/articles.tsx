@@ -5,7 +5,7 @@ import ArticleItem from '../../components/articleItem/articleItem'
 const useStyles = makeStyles({
     articlesWrapper: {
         display: 'flex',
-        width: '100%',
+        width: '80%',
         height: 'calc(100% - 6rem)',
         justifyContent: 'center',
         flexWrap: 'wrap',
