@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     headerWrapper: {
         display: 'flex',
         width: '100%',
-        backgroundColor: '#788a91', 
+        backgroundColor: '#fff', 
         height: '6rem',
         alignItems: 'center',
         padding: '0 2rem'
@@ -16,7 +16,7 @@ const Header = () => {
     const classes = useStyles();
     return (
         <Box className={classes.headerWrapper}>
-            <Typography style={{color: '#fff'}} variant='h3'>Lebra_</Typography>
+            <Typography style={{color: '#70c1b3', fontWeight: 500}} variant='h3'>Lebra_</Typography>
         </Box>
     )
 }

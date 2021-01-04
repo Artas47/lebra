@@ -7,6 +7,7 @@ const useStyles = makeStyles({
         display: 'flex',
         width: '100%',
         height: 'calc(100% - 6rem)',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         backgroundColor: '#efeff0',
         overflowY: 'scroll'

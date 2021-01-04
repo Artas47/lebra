@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         alignItems: 'center',
         width: '100%',
         height: '25rem',
-        backgroundColor: '#cfd8dc',
+        backgroundColor: '#ebeef0',
         color: '#8d9699',
         marginBottom: '7rem'
     },
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         width: '13rem',
         height: '13rem',
         fill: '#fff',
-        margin: '0 2rem 2rem 2rem'
+        margin: '0 1.5rem 2rem 1.5rem'
     },
     iconsWrapper: {
         display: 'flex',

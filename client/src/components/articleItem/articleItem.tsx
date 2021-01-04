@@ -3,22 +3,26 @@ import React from 'react';
 
 const useStyles = makeStyles({
     article: {
-      height: '20rem',
-      width: '45%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        // flexWrap: 'wrap',
+      height: '50rem',
+      width: '30rem',
       margin: '3rem'
     },
     image: {
-        height: '100%',
-        maxWidth: '20rem'
+        height: '60%',
+        width: '100%'
     }
   });
 
 const ArticleItem = () => {
     const classes = useStyles();
     return (
-        <Box display='flex' className={classes.article}>
+        <Box className={classes.article}>
             <img className={classes.image} src='https://picsum.photos/200/300'/>
-            <Typography style={{color: colors.blueGrey[500], marginLeft: '1rem'}} variant="h4">
+            <Typography style={{color: colors.blueGrey[500], height: '100%'}} variant="h4">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
             </Typography>
         </Box>

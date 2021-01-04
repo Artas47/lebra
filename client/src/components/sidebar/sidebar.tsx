@@ -13,11 +13,11 @@ const useStyles = makeStyles({
         alignItems: 'center',
         height: '100vh',
         width: '100%',
-        backgroundColor: '#e4e6da'
+        backgroundColor: '#fff', 
     },
     button: {
         width: '80%',
-        backgroundColor: colors.blueGrey[500],
+        backgroundColor: '#70c1b3',
         color: '#fff',
         height: '5.5rem',
     }
