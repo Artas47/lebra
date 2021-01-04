@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
-import { colors } from '@material-ui/core';
+import { colors, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track
@@ -43,10 +43,20 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#70c1b3'
+    }
+  }
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App />
+    <MuiThemeProvider theme={theme}>
+      <App />
+    </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

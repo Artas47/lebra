@@ -2,10 +2,10 @@ import { makeStyles, Typography } from '@material-ui/core'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     headerWrapper: {
         width: '80%',
         display: 'flex',
@@ -14,19 +14,24 @@ const useStyles = makeStyles({
         boxShadow: 'none',
     },
     tabs: {
-        backgroundColor: '#70c1b3',
+        backgroundColor: theme.palette.primary.main,
     },
     tab: {
-        color: '#70c1b3',
+        color: theme.palette.primary.main,
         fontSize: '1.6rem',
         height: '6rem',
     }
-});
+}));
 
 const Header = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState('/');
     const history = useHistory();
+    const location = useLocation();
+
+    useEffect(() => {
+        setValue(location.pathname)
+    }, [location])
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
         setValue(newValue);

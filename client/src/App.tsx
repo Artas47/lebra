@@ -7,11 +7,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-// import {} from 'react-router-dom';
-
-// const useStyles = makeStyles({
-//   headerWrapper
-// });
 
 function App() {
   return (
@@ -20,6 +15,9 @@ function App() {
         <Header />
         <Sidebar />
         <Switch>
+          <Route path='/article/:articleId'>
+            
+          </Route>
           <Route path='/notes' exact>
             NOTES
           </Route>

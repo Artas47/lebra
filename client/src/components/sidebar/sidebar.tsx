@@ -17,7 +17,6 @@ const useStyles = makeStyles({
     },
     button: {
         width: '80%',
-        backgroundColor: '#70c1b3',
         color: '#fff',
         height: '5.5rem',
         '&:hover': {
@@ -34,9 +33,8 @@ const Sidebar = () => {
             <Button
                 variant="contained"
                 size="large"
-                color='default'
+                color='primary'
                 classes={{root: classes.button}}
-                // className={classes.button}
                 startIcon={<AddIcon />}
             >
                 <Typography variant='h5'>Create note</Typography>

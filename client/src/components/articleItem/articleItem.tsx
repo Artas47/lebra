@@ -1,30 +1,48 @@
-import { Box, colors, makeStyles, Typography } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     article: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        // flexWrap: 'wrap',
-      height: '45rem',
-      width: '30rem',
-      margin: '3rem'
+        width: '30rem',
+        margin: '3rem',
+        transition: 'all .2s',
+        borderBottom: `5px solid transparent`,
+        cursor: 'pointer',
+        '&:hover': {
+            borderBottom: `5px solid ${theme.palette.primary.dark}`,
+        }
     },
     image: {
         height: '30rem',
         width: '100%'
+    },
+    text: {
+        color: '#25554d', 
+        height: '100%', 
+        marginTop: '1rem', 
+        fontSize: '2rem', 
+        textAlign: 'center', 
+        lineHeight: '1.5',
+        letterSpacing: '1px'
     }
-  });
+  }));
 
-const ArticleItem = () => {
+    type ArticleItemProps = {
+        image: string,
+        title: string
+        id: string
+    }
+
+const ArticleItem = ({image, title, id}: ArticleItemProps) => {
     const classes = useStyles();
     return (
         <Box className={classes.article}>
-            
-            <img alt='article' className={classes.image} src='https://picsum.photos/200/300'/>
-            <Typography style={{color: colors.blueGrey[500], height: '100%', marginTop: '1rem'}} variant="h4">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+            <img alt='article' className={classes.image} src={image}/>
+            <Typography className={classes.text} variant="h4">
+                {title}
             </Typography>
         </Box>
     )
