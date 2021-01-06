@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import ArticleDetails from './pages/articleDetails';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Sidebar />
         <Switch>
           <Route path='/article/:articleId'>
-            
+            <ArticleDetails />
           </Route>
           <Route path='/notes' exact>
             NOTES

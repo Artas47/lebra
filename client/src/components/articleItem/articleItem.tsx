@@ -1,5 +1,6 @@
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     article: {
@@ -38,8 +39,10 @@ const useStyles = makeStyles(theme => ({
 
 const ArticleItem = ({image, title, id}: ArticleItemProps) => {
     const classes = useStyles();
+    const history = useHistory();
+
     return (
-        <Box className={classes.article}>
+        <Box className={classes.article} onClick={() => history.push(`/article/${id}`)}>
             <img alt='article' className={classes.image} src={image}/>
             <Typography className={classes.text} variant="h4">
                 {title}
