@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
-import Articles from './pages/articles/articles';
+import Articles from './pages/articles';
 import {
   BrowserRouter as Router,
   Switch,

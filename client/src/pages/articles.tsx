@@ -1,6 +1,6 @@
 import { Box, makeStyles } from '@material-ui/core'
 import React from 'react'
-import ArticleItem from '../../components/articleItem/articleItem'
+import ArticleItem from '../components/articleItem/articleItem'
 
 const useStyles = makeStyles({
     articlesWrapper: {
