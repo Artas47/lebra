@@ -44,6 +44,7 @@ const Header = () => {
             <Tabs classes={{indicator: classes.tabs}} value={value} onChange={handleChange} aria-label="simple tabs example">
                 <Tab classes={{root: classes.tab}} label="Articles" value='/' />
                 <Tab classes={{root: classes.tab}} label="Notes" value='/notes' />
+                <Tab classes={{root: classes.tab}} label="Learn" value='/learn' />
             </Tabs>
             </div>
         </AppBar>
