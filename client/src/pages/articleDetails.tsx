@@ -1,4 +1,4 @@
-import { Box, Button, ClickAwayListener, Fade, makeStyles, Popper } from '@material-ui/core';
+import { Box, Button, ClickAwayListener, colors, Fade, makeStyles, Popper } from '@material-ui/core';
 import React from 'react'
 import { useParams } from 'react-router-dom';
 
@@ -18,6 +18,15 @@ const useStyles = makeStyles({
         backgroundColor: '#fff',
         display: 'flex',
     },
+    button: {
+        fontSize: '1.3rem', 
+        fontWeight: 400,
+        color: colors.grey[700],
+        padding: '1rem',
+        '&:hover': {
+            backgroundColor: colors.grey[300],
+        }
+    }
 });
 
 interface ParamTypes {
@@ -57,10 +66,10 @@ const ArticleDetails = () => {
                     {({ TransitionProps }) => (
                         <Fade {...TransitionProps} timeout={350}>
                             <Box className={classes.popperBox} boxShadow={1}>
-                                <Button style={{fontSize: '1.3rem', fontWeight: 400}}>
+                                <Button className={classes.button}>
                                     Check meaning
                                 </Button>
-                                <Button style={{fontSize: '1.3rem', fontWeight: 400}}>
+                                <Button className={classes.button}>
                                     Check synonyms
                                 </Button>
                             </Box>
