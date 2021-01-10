@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ArticleDetails from "./pages/articleDetails";
 import "./css/loader.css";
 import { makeStyles } from "@material-ui/core";
-import classes from "*.module.css";
 
 const useStyles = makeStyles({
   mainWrapper: {
