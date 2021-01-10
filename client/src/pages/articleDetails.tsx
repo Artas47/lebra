@@ -7,7 +7,7 @@ import {
   makeStyles,
   Popper,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -18,8 +18,7 @@ const useStyles = makeStyles({
     height: "1rem",
     fontWeight: 300,
     "&:hover": {
-      transform: "scale(1.5)",
-      color: "#70c1b3",
+      color: "#70c1b3 !important",
     },
   },
   popperBox: {
@@ -52,17 +51,20 @@ const e = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere eaqu
 const ArticleDetails = () => {
   const classes = useStyles();
   const { articleId } = useParams<ParamTypes>();
-
+  const [currentWord, setCurrentWord] = useState<Number | null>(null);
+  console.log("currentWord", currentWord);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
   const id = open ? "legend-popover" : undefined;
 
-  function handleClose() {
+  function handleOnClickAway() {
+    setCurrentWord(null);
     setOpen(false);
   }
 
-  const handleClick = () => (event: any) => {
+  const handleClick = (i: number) => (event: any) => {
+    setCurrentWord(i);
     setAnchorEl(event.currentTarget);
     setOpen(true);
   };
@@ -96,16 +98,19 @@ const ArticleDetails = () => {
           </Fade>
         )}
       </Popper>
-      <ClickAwayListener onClickAway={handleClose}>
+      <ClickAwayListener onClickAway={handleOnClickAway}>
         <div className={classes.textWrapper}>
           <p style={{ color: "#25554d", wordSpacing: "1rem" }}>
-            {e.map((q) => {
+            {e.map((q, i) => {
               return (
                 <>
                   <p
                     className={classes.word}
-                    style={{ display: "inline" }}
-                    onClick={handleClick()}
+                    style={{
+                      display: "inline",
+                      color: i === currentWord ? "#70c1b3" : "currentColor",
+                    }}
+                    onClick={handleClick(i)}
                   >
                     {q}
                   </p>{" "}
