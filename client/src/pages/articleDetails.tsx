@@ -10,6 +10,15 @@ import {
 import React, { useState } from "react";
 
 const useStyles = makeStyles({
+  articleWrapper: {
+    margin: "2rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    fontSize: "3rem",
+    textAlign: "justify",
+    wordBreak: "break-all",
+  },
   word: {
     cursor: "pointer",
     transition: "all .2s",
@@ -34,7 +43,7 @@ const useStyles = makeStyles({
     },
   },
   textWrapper: {
-    width: "90%",
+    width: "60%",
     margin: "3rem auto",
   },
 });
@@ -63,13 +72,7 @@ const ArticleDetails = () => {
   };
 
   return (
-    <div
-      style={{
-        margin: "2rem",
-        fontSize: "3rem",
-        textAlign: "center",
-      }}
-    >
+    <div className={classes.articleWrapper}>
       <img alt="Article description" src="https://picsum.photos/200/300" />
       <Popper id={id} open={open} anchorEl={anchorEl} transition>
         {({ TransitionProps }) => (
