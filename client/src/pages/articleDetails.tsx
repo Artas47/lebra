@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     textAlign: "justify",
     wordBreak: "break-all",
   },
@@ -82,6 +82,12 @@ const ArticleDetails = () => {
                 onClick={(e) => e.stopPropagation()}
                 className={classes.button}
               >
+                Translate
+              </Button>
+              <Button
+                onClick={(e) => e.stopPropagation()}
+                className={classes.button}
+              >
                 Check meaning
               </Button>
               <Button
@@ -105,6 +111,11 @@ const ArticleDetails = () => {
                     style={{
                       display: "inline",
                       color: i === currentWord ? "#70c1b3" : "currentColor",
+                      // backgroundColor:
+                      //   i === currentWord ? "#fff" : "transparent",
+                      // borderRadius: "5px",
+                      // padding: i === currentWord ? "0 5px" : "0",
+                      // transform: "scale(1.5)",
                     }}
                     onClick={handleClick(i)}
                   >
