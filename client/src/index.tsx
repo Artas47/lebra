@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
-import { colors, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createGlobalStyle } from "styled-components";
+import { colors, createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 
 const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track
@@ -46,9 +46,9 @@ const GlobalStyles = createGlobalStyle`
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#70c1b3'
-    }
-  }
+      main: "#70c1b3",
+    },
+  },
 });
 
 ReactDOM.render(
@@ -58,9 +58,8 @@ ReactDOM.render(
       <App />
     </MuiThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
