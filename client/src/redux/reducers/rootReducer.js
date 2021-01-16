@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
+import { replaceMe } from "./replaceMe";
 
 const rootReducer = combineReducers({
-  replaceMe: () => {
-    return { replaceMe: "fds" };
-  },
+  replaceMe,
 });
 
 export default rootReducer;

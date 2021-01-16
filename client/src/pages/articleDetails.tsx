@@ -6,8 +6,15 @@ import {
   Fade,
   makeStyles,
   Popper,
+  Typography,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
   articleWrapper: {
@@ -18,6 +25,7 @@ const useStyles = makeStyles({
     fontSize: "2.5rem",
     textAlign: "justify",
     wordBreak: "break-all",
+    // whiteSpace: "",
   },
   word: {
     cursor: "pointer",
@@ -31,6 +39,9 @@ const useStyles = makeStyles({
   },
   popperBox: {
     backgroundColor: "#fff",
+    maxWidth: "50rem",
+  },
+  popperBoxItem: {
     display: "flex",
   },
   button: {
@@ -57,6 +68,11 @@ const ArticleDetails = () => {
   const [currentWord, setCurrentWord] = useState<Number | null>(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "REPLACE_ME", siema: "SIEMANO" });
+  }, []);
 
   const id = open ? "legend-popover" : undefined;
 
@@ -78,24 +94,78 @@ const ArticleDetails = () => {
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
             <Box className={classes.popperBox} boxShadow={1}>
-              <Button
-                onClick={(e) => e.stopPropagation()}
-                className={classes.button}
-              >
-                Translate
-              </Button>
-              <Button
-                onClick={(e) => e.stopPropagation()}
-                className={classes.button}
-              >
-                Check meaning
-              </Button>
-              <Button
-                onClick={(e) => e.stopPropagation()}
-                className={classes.button}
-              >
-                Check synonyms
-              </Button>
+              <Table aria-label="simple table">
+                <TableBody>
+                  <TableRow>
+                    <TableCell
+                      style={{ wordBreak: "keep-all" }}
+                      component="th"
+                      scope="row"
+                    >
+                      <Typography
+                        style={{
+                          fontWeight: 300,
+                          fontSize: "1.8rem",
+                        }}
+                        variant="h4"
+                      >
+                        Translation
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="left">
+                      <Typography
+                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        variant="h3"
+                      >
+                        Siema ja przetlumaczony
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      <Typography
+                        style={{
+                          fontWeight: 300,
+                          fontSize: "1.8rem",
+                        }}
+                        variant="h4"
+                      >
+                        Meaning
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="left">
+                      <Typography
+                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        variant="h3"
+                      >
+                        to be accussed of smthgsdfgfds gsdf dfgs dfsgsdfg dsfg
+                        dfs sdfsfdsdf;
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      <Typography
+                        style={{
+                          fontWeight: 300,
+                          fontSize: "1.8rem",
+                        }}
+                        variant="h4"
+                      >
+                        Synonyms
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="left">
+                      <Typography
+                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        variant="h3"
+                      >
+                        siema, ka, synonim, elowka
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </Box>
           </Fade>
         )}
