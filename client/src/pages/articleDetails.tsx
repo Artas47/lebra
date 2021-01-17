@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   ClickAwayListener,
   colors,
   Fade,
@@ -8,7 +7,6 @@ import {
   Popper,
   Typography,
   Table,
-  TableHead,
   TableRow,
   TableCell,
   TableBody,
@@ -22,17 +20,16 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    fontSize: "2.5rem",
-    textAlign: "justify",
-    wordBreak: "break-all",
+    fontSize: "2.3rem",
+    lineHeight: "2.6rem",
+    wordWrap: "break-word",
+    overflowWrap: "break-word",
+    hyphens: "auto",
     // whiteSpace: "",
   },
   word: {
     cursor: "pointer",
     transition: "all .2s",
-    width: "100%",
-    height: "1rem",
-    fontWeight: 300,
     "&:hover": {
       color: "#70c1b3 !important",
     },
@@ -104,7 +101,6 @@ const ArticleDetails = () => {
                     >
                       <Typography
                         style={{
-                          fontWeight: 300,
                           fontSize: "1.8rem",
                         }}
                         variant="h4"
@@ -114,7 +110,7 @@ const ArticleDetails = () => {
                     </TableCell>
                     <TableCell align="left">
                       <Typography
-                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        style={{ fontWeight: 300, fontSize: "2rem" }}
                         variant="h3"
                       >
                         Siema ja przetlumaczony
@@ -125,7 +121,6 @@ const ArticleDetails = () => {
                     <TableCell component="th" scope="row">
                       <Typography
                         style={{
-                          fontWeight: 300,
                           fontSize: "1.8rem",
                         }}
                         variant="h4"
@@ -135,7 +130,7 @@ const ArticleDetails = () => {
                     </TableCell>
                     <TableCell align="left">
                       <Typography
-                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        style={{ fontWeight: 300, fontSize: "2rem" }}
                         variant="h3"
                       >
                         to be accussed of smthgsdfgfds gsdf dfgs dfsgsdfg dsfg
@@ -147,7 +142,6 @@ const ArticleDetails = () => {
                     <TableCell component="th" scope="row">
                       <Typography
                         style={{
-                          fontWeight: 300,
                           fontSize: "1.8rem",
                         }}
                         variant="h4"
@@ -157,7 +151,7 @@ const ArticleDetails = () => {
                     </TableCell>
                     <TableCell align="left">
                       <Typography
-                        style={{ fontWeight: 200, fontSize: "2rem" }}
+                        style={{ fontWeight: 300, fontSize: "2rem" }}
                         variant="h3"
                       >
                         siema, ka, synonim, elowka
@@ -172,7 +166,7 @@ const ArticleDetails = () => {
       </Popper>
       <ClickAwayListener onClickAway={handleOnClickAway}>
         <div className={classes.textWrapper}>
-          <p style={{ color: "#25554d", wordSpacing: "1rem" }}>
+          <p style={{ color: "#25554d", wordSpacing: "0.5rem" }}>
             {e.map((q, i) => {
               return (
                 <>
@@ -181,11 +175,11 @@ const ArticleDetails = () => {
                     style={{
                       display: "inline",
                       color: i === currentWord ? "#70c1b3" : "currentColor",
-                      // backgroundColor:
-                      //   i === currentWord ? "#fff" : "transparent",
-                      // borderRadius: "5px",
+                      backgroundColor:
+                        i === currentWord ? "#fff" : "transparent",
+                      borderRadius: "5px",
                       // padding: i === currentWord ? "0 5px" : "0",
-                      // transform: "scale(1.5)",
+                      transform: "scale(1.5)",
                     }}
                     onClick={handleClick(i)}
                   >
