@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 const articlesRoutes = require("./routes/articlesRoutes");
-const port = 3001;
+const mongoose = require("mongoose");
+
+const port = process.env.PORT || 3001;
+const mongoDbUri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.lee0p.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,6 +19,17 @@ app.use((req, res, next) => {
 
 app.use("/api/articles", articlesRoutes);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+mongoose
+  .connect(mongoDbUri, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(
+    app.listen(port, () => {
+      console.log("server started");
+    })
+  )
+  .catch((err) => {
+    console.log(err);
+  });
