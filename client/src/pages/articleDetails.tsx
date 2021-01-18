@@ -166,7 +166,7 @@ const ArticleDetails = () => {
       </Popper>
       <ClickAwayListener onClickAway={handleOnClickAway}>
         <div className={classes.textWrapper}>
-          <p style={{ color: "#25554d", wordSpacing: "0.5rem" }}>
+          <p style={{ color: "#25554d", wordSpacing: "0.2rem" }}>
             {e.map((q, i) => {
               return (
                 <>
