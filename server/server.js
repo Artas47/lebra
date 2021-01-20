@@ -19,6 +19,11 @@ app.use((req, res, next) => {
 
 app.use("/api/articles", articlesRoutes);
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 mongoose
   .connect(mongoDbUri, {
     useCreateIndex: true,
