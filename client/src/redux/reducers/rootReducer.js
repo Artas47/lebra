@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { replaceMe } from "./replaceMe";
+import articlesReducer from "./articlesReducer";
 
 const rootReducer = combineReducers({
-  replaceMe,
+  articles: articlesReducer,
 });
 
 export default rootReducer;

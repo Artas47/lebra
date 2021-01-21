@@ -1,6 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import ArticleItem from "../components/articleItem/articleItem";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
   articlesWrapper: {
@@ -12,6 +13,10 @@ const useStyles = makeStyles({
 });
 
 const Articles = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: "FETCH_ARTICLES_START" });
+  }, []);
   const classes = useStyles();
   return (
     <Box className={classes.articlesWrapper}>
