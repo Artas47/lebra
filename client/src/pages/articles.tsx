@@ -4,6 +4,7 @@ import ArticleItem from "../components/articleItem/articleItem";
 import { useDispatch, useSelector } from "react-redux";
 import { checkIfLoading } from "../redux/selectors/loadingSelector";
 import Fade from "@material-ui/core/Fade";
+import { FETCH_ARTICLES } from "../redux/types";
 
 const useStyles = makeStyles({
   articlesWrapper: {
@@ -17,10 +18,11 @@ const useStyles = makeStyles({
 const Articles = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "FETCH_ARTICLES" });
+    dispatch({ type: FETCH_ARTICLES });
   }, []);
-  const isLoading = useSelector(checkIfLoading("FETCH_ARTICLES"));
+  const isLoading = useSelector(checkIfLoading(FETCH_ARTICLES));
   const classes = useStyles();
+  console.log("isLoading", isLoading);
   if (isLoading) {
     return (
       <div

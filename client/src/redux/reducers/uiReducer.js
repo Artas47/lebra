@@ -1,3 +1,5 @@
+import { START_LOADING, STOP_LOADING } from "../types";
+
 const initialState = {
   loader: {
     actions: [],
@@ -9,7 +11,7 @@ const uiReducer = (state = initialState, { type, payload }) => {
   const { loader } = state;
   const { actions } = loader;
   switch (type) {
-    case "START":
+    case START_LOADING:
       return {
         ...state,
         loader: {
@@ -17,7 +19,7 @@ const uiReducer = (state = initialState, { type, payload }) => {
           actions: [...actions, payload.action],
         },
       };
-    case "STOP":
+    case STOP_LOADING:
       return {
         ...state,
         loader: {
