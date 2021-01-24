@@ -6,6 +6,7 @@ import {
   START_LOADING,
   STOP_LOADING,
   FETCH_ARTICLE,
+  FETCH_ARTICLE_SUCCESS,
 } from "../types";
 
 export function* fetchArticlesAsync({ type }) {
@@ -25,7 +26,6 @@ export function* fetchArticleAsync({ type, articleId }) {
     const response = yield axios.get(
       `http://localhost:3001/api/articles/${articleId}`
     );
-    console.log("response", response);
     yield put({ type: FETCH_ARTICLE_SUCCESS, payload: response.data });
   } catch (error) {
   } finally {

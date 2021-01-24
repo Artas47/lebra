@@ -1,6 +1,11 @@
-import { makeStyles } from "@material-ui/core";
-import React from "react";
+import { makeStyles, Fade } from "@material-ui/core";
+import React, { useEffect } from "react";
 import ArticleDetails from "../components/articleDetails/articleDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { FETCH_ARTICLE } from "../redux/types";
+import { useParams } from "react-router-dom";
+import { checkIfLoading } from "../redux/selectors/loadingSelector";
+import Spinner from "../components/shared/spinner";
 
 const useStyles = makeStyles({
   articleWrapper: {
@@ -16,13 +21,27 @@ const useStyles = makeStyles({
   },
 });
 
+interface ParamTypes {
+  articleId: string;
+}
+
 const ArticleDetailsPage = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  const { articleId } = useParams<ParamTypes>();
+  useEffect(() => {
+    dispatch({ type: FETCH_ARTICLE, articleId });
+  }, []);
+  const isLoading = useSelector(checkIfLoading(FETCH_ARTICLE));
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
-    <div className={classes.articleWrapper}>
-      <ArticleDetails />
-    </div>
+    <Fade in={!isLoading}>
+      <div className={classes.articleWrapper}>
+        <ArticleDetails />
+      </div>
+    </Fade>
   );
 };
 

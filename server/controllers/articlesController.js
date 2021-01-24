@@ -11,11 +11,11 @@ const getArticles = async (req, res, next) => {
 
 const getArticle = async (req, res, next) => {
   try {
-    console.log("req", req.params);
-    const article = await Article.find({});
-    res.send("fdsfdsfsd");
+    const articleId = req.params.articleId;
+    const article = await Article.findById(articleId);
+    res.send({ article });
   } catch (err) {
-    return next(new Error("Could not fetch articles, try again later"));
+    return next(new Error("Could not fetch article, try again later"));
   }
 };
 
