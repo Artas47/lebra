@@ -9,4 +9,15 @@ const getArticles = async (req, res, next) => {
   }
 };
 
+const getArticle = async (req, res, next) => {
+  try {
+    console.log("req", req.params);
+    const article = await Article.find({});
+    res.send("fdsfdsfsd");
+  } catch (err) {
+    return next(new Error("Could not fetch articles, try again later"));
+  }
+};
+
 exports.getArticles = getArticles;
+exports.getArticle = getArticle;

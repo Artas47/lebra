@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "./components/header/header";
 import Sidebar from "./components/sidebar/sidebar";
-import Articles from "./pages/articles";
+import Articles from "./pages/articlesPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ArticleDetails from "./pages/articleDetails";
+import ArticleDetails from "./pages/articleDetailsPage";
 import "./css/loader.css";
 import { makeStyles } from "@material-ui/core";
 

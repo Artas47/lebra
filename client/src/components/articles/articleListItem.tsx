@@ -1,6 +1,8 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { FETCH_ARTICLE } from "../../redux/types";
 
 const useStyles = makeStyles((theme) => ({
   article: {
@@ -32,20 +34,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type ArticleItemProps = {
+type ArticleListItemProps = {
   image: string;
   title: string;
   id: string;
 };
 
-const ArticleItem = ({ image, title, id }: ArticleItemProps) => {
+const ArticleListItem = ({ image, title, id }: ArticleListItemProps) => {
   const classes = useStyles();
   const history = useHistory();
-
+  const dispatch = useDispatch();
   return (
     <Box
       className={classes.article}
-      onClick={() => history.push(`/article/${id}`)}
+      onClick={() => {
+        dispatch({ type: FETCH_ARTICLE, articleId: "EOEO" });
+        history.push(`/article/${id}`);
+      }}
     >
       <img alt="article" className={classes.image} src={image} />
       <Typography className={classes.text} variant="h4">
@@ -55,4 +60,4 @@ const ArticleItem = ({ image, title, id }: ArticleItemProps) => {
   );
 };
 
-export default ArticleItem;
+export default ArticleListItem;

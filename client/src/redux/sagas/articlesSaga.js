@@ -5,6 +5,7 @@ import {
   FETCH_ARTICLES,
   START_LOADING,
   STOP_LOADING,
+  FETCH_ARTICLE,
 } from "../types";
 
 export function* fetchArticlesAsync({ type }) {
@@ -18,10 +19,28 @@ export function* fetchArticlesAsync({ type }) {
   }
 }
 
+export function* fetchArticleAsync({ type, articleId }) {
+  try {
+    yield put({ type: START_LOADING, payload: { action: { name: type } } });
+    const response = yield axios.get(
+      `http://localhost:3001/api/articles/${articleId}`
+    );
+    console.log("response", response);
+    yield put({ type: FETCH_ARTICLE_SUCCESS, payload: response.data });
+  } catch (error) {
+  } finally {
+    yield put({ type: STOP_LOADING, payload: { action: { name: type } } });
+  }
+}
+
 export function* fetchArticles() {
   yield takeLatest(FETCH_ARTICLES, fetchArticlesAsync);
 }
 
+export function* fetchArticle() {
+  yield takeLatest(FETCH_ARTICLE, fetchArticleAsync);
+}
+
 export function* articlesSaga() {
-  yield all([call(fetchArticles)]);
+  yield all([call(fetchArticles), call(fetchArticle)]);
 }
