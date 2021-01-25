@@ -54,7 +54,7 @@ const Header = () => {
           classes={{ indicator: classes.tabs }}
           value={value}
           onChange={handleChange}
-          aria-label="simple tabs example"
+          aria-label="header-tabs"
         >
           <Tab classes={{ root: classes.tab }} label="Articles" value="/" />
           <Tab classes={{ root: classes.tab }} label="Notes" value="/notes" />

@@ -5,7 +5,7 @@ const initialState = {
   article: null,
 };
 
-export default (state = initialState, action) => {
+export default function articlesReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_ARTICLES_SUCCESS:
       return { ...state, articleItems: action.payload.articles };
@@ -14,4 +14,4 @@ export default (state = initialState, action) => {
     default:
       return { ...state };
   }
-};
+}

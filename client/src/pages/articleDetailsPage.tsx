@@ -31,7 +31,7 @@ const ArticleDetailsPage = () => {
   const { articleId } = useParams<ParamTypes>();
   useEffect(() => {
     dispatch({ type: FETCH_ARTICLE, articleId });
-  }, []);
+  }, [dispatch, articleId]);
   const isLoading = useSelector(checkIfLoading(FETCH_ARTICLE));
   if (isLoading) {
     return <Spinner />;

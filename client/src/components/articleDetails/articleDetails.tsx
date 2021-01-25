@@ -15,6 +15,8 @@ const useStyles = makeStyles({
   textWrapper: {
     width: "60%",
     margin: "3rem auto",
+    color: "#25554d",
+    wordSpacing: "0.2rem",
   },
 });
 
@@ -43,30 +45,28 @@ const ArticleDetails = () => {
       <WordPopper anchorEl={anchorEl} open={open} />
       <ClickAwayListener onClickAway={handleOnClickAway}>
         <div className={classes.textWrapper}>
-          <p style={{ color: "#25554d", wordSpacing: "0.2rem" }}>
-            {articleContent &&
-              articleContent.map((q: string, i: number) => {
-                return (
-                  <>
-                    <p
-                      className={classes.word}
-                      style={{
-                        display: "inline",
-                        color: i === currentWord ? "#70c1b3" : "currentColor",
-                        backgroundColor:
-                          i === currentWord ? "#fff" : "transparent",
-                        borderRadius: "5px",
-                        // padding: i === currentWord ? "0 5px" : "0",
-                        transform: "scale(1.5)",
-                      }}
-                      onClick={handleClick(i)}
-                    >
-                      {q}
-                    </p>{" "}
-                  </>
-                );
-              })}
-          </p>
+          {articleContent &&
+            articleContent.map((q: string, i: number) => {
+              return (
+                <span key={q + i}>
+                  <p
+                    className={classes.word}
+                    style={{
+                      display: "inline",
+                      color: i === currentWord ? "#70c1b3" : "currentColor",
+                      backgroundColor:
+                        i === currentWord ? "#fff" : "transparent",
+                      borderRadius: "5px",
+                      // padding: i === currentWord ? "0 5px" : "0",
+                      transform: "scale(1.5)",
+                    }}
+                    onClick={handleClick(i)}
+                  >
+                    {q}
+                  </p>{" "}
+                </span>
+              );
+            })}
         </div>
       </ClickAwayListener>
     </>
