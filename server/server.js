@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const articlesRoutes = require("./routes/articlesRoutes");
+const wordsRoutes = require("./routes/wordsRoutes");
 const mongoose = require("mongoose");
 
 const port = process.env.PORT || 3001;
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/articles", articlesRoutes);
+app.use("/api/words", wordsRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

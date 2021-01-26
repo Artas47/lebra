@@ -1,8 +1,9 @@
 import { ClickAwayListener, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import WordPopper from "./wordPopper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { articleSelector } from "../../redux/selectors/articlesSelector";
+import { FETCH_WORD } from "../../redux/types";
 
 const useStyles = makeStyles({
   word: {
@@ -27,6 +28,7 @@ const ArticleDetails = () => {
   const [anchorEl, setAnchorEl] = useState<Number | null>(null);
   const article = useSelector(articleSelector);
   const articleContent = article?.content.split(" ");
+  const dispatch = useDispatch();
 
   function handleOnClickAway() {
     setCurrentWord(null);
@@ -34,6 +36,7 @@ const ArticleDetails = () => {
   }
 
   const handleClick = (i: number) => (event: any) => {
+    dispatch({ type: FETCH_WORD });
     setCurrentWord(i);
     setAnchorEl(event.currentTarget);
     setOpen(true);
