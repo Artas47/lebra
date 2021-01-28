@@ -7,6 +7,7 @@ const initialState = {
   },
 };
 
+
 const uiReducer = (state = initialState, { type, payload }) => {
   const { loader } = state;
   const { actions } = loader;
