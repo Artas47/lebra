@@ -60,7 +60,6 @@ const ArticleDetails = () => {
                       backgroundColor:
                         i === currentWord ? "#fff" : "transparent",
                       borderRadius: "5px",
-                      // padding: i === currentWord ? "0 5px" : "0",
                       transform: "scale(1.5)",
                     }}
                     onClick={handleClick(i)}
