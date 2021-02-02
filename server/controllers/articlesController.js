@@ -1,17 +1,7 @@
 const Article = require("../models/article");
-const Reverso = require("reverso-api");
 
 const getArticles = async (req, res, next) => {
   try {
-    const reverso = new Reverso();
-    reverso
-      .getContext("empty", "English", "Polish")
-      .then((response) => {
-        return console.log(response);
-      })
-      .catch((err) => {
-        return console.error(err);
-      });
     const articles = await Article.find({});
     res.send({ articles });
   } catch (err) {
