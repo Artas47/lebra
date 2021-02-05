@@ -35,8 +35,8 @@ const ArticleDetails = () => {
     setOpen(false);
   }
 
-  const handleClick = (i: number) => (event: any) => {
-    dispatch({ type: FETCH_WORD });
+  const handleClick = (i: number, word: string) => (event: any) => {
+    dispatch({ type: FETCH_WORD, word });
     setCurrentWord(i);
     setAnchorEl(event.currentTarget);
     setOpen(true);
@@ -62,7 +62,7 @@ const ArticleDetails = () => {
                       borderRadius: "5px",
                       transform: "scale(1.5)",
                     }}
-                    onClick={handleClick(i)}
+                    onClick={handleClick(i, q)}
                   >
                     {q}
                   </p>{" "}
